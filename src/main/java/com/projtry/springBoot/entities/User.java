@@ -2,24 +2,34 @@ package com.projtry.springBoot.entities;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tb_user")
 public class User implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nome;
+    private String name;
     private String email;
-    private String telemovel;
+    private String phone;
     private String password;
 
     public User () {
     }
 
-    public User(Long id, String nome, String email, String telemovel, String password) {
+    public User(Long id, String name, String email, String phone, String password) {
         this.id = id;
-        this.nome = nome;
+        this.name = name;
         this.email = email;
-        this.telemovel = telemovel;
+        this.phone = phone;
         this.password = password;
     }
 
@@ -31,12 +41,12 @@ public class User implements Serializable{
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getname() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setname(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -47,12 +57,12 @@ public class User implements Serializable{
         this.email = email;
     }
 
-    public String getTelemovel() {
-        return telemovel;
+    public String getphone() {
+        return phone;
     }
 
-    public void setTelemovel(String telemovel) {
-        this.telemovel = telemovel;
+    public void setphone(String phone) {
+        this.phone = phone;
     }
 
     public String getPassword() {
