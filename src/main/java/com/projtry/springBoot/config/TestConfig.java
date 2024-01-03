@@ -66,14 +66,17 @@ public class TestConfig implements CommandLineRunner {
 
         productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
 
-        User u1 = new User(null, "Joao", "joao@gmail.com", "912842847", "123");
-        User u2 = new User(null, "Manuel", "mn@gmail.com", "911242420", "1234");
+        User u1 = new User(null, "Joao", "joao@gmail.com", "123", "912842847", "Rua de cima");
+        User u2 = new User(null, "Manuel", "mn@gmail.com", "1234", "911242420", "Rua de baixo");
+        User u3 = new User(null, "Ze", "ze@gmail.com", "784", "918265345", "Rua de paris");
+        User u4 = new User(null, "Kelly", "kelly@gmail.com", "dwdi", "91547889", "Rua de Alambique");
+        User u5 = new User(null, "Filipe", "filipe@gmail.com", "o1m2e", "918267445", "Rua dali");
 
         Order o1 = new Order(null, Instant.parse("2019-06-20T19:53:07Z"), OrderStatus.PAID, u1);
         Order o2 = new Order(null, Instant.parse("2019-07-21T03:42:10Z"), OrderStatus.WAITING_PAYMENT, u2);
         Order o3 = new Order(null, Instant.parse("2019-06-22T15:21:22Z"), OrderStatus.WAITING_PAYMENT, u1);
 
-        userRepository.saveAll(Arrays.asList(u1, u2));
+        userRepository.saveAll(Arrays.asList(u1, u2, u3, u4, u5));
         orderRepository.saveAll(Arrays.asList(o1, o2, o3));
 
         OrderItem oi1 = new OrderItem(o1, p1, 2, p1.getPrice());
